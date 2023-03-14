@@ -134,14 +134,25 @@ class _AddItemsState extends State<AddItems> {
                             if (_titlecontroler.text.isEmpty ||
                                 _city.text.isEmpty ||
                                 _details.text.isEmpty ||
-                                category == '') {
-                              Fluttertoast.showToast(
-                                  msg: "Pleas enter all Fields!",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: base,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0);
+                                category == '' ||
+                                images.isEmpty) {
+                              if (images.isEmpty) {
+                                Fluttertoast.showToast(
+                                    msg: "Pleas select an image!",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: base,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: "Pleas enter all Fields!",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: base,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                              }
                             } else {
                               setState(() {
                                 _isloading = true;
